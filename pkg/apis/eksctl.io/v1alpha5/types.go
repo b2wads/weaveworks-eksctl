@@ -781,6 +781,9 @@ type NodeGroup struct {
 	InstancesDistribution *NodeGroupInstancesDistribution `json:"instancesDistribution,omitempty"`
 
 	// +optional
+	CustomSubnets string `json:"customSubnets,omitempty"`
+
+	// +optional
 	ASGMetricsCollection []MetricsCollection `json:"asgMetricsCollection,omitempty"`
 
 	// CPUCredits configures [T3 Unlimited](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.html), valid only for T-type instances
@@ -1199,6 +1202,9 @@ type NodeGroupBase struct {
 
 	// +optional
 	*ScalingConfig
+
+	// +optional
+	CustomSubnets string `json:"customSubnets,omitempty"`
 
 	// +optional
 	// VolumeSize gigabytes

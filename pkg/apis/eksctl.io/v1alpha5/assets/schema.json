@@ -403,6 +403,17 @@
     },
     "ClusterSubnets": {
       "properties": {
+        "custom": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "$ref": "#/definitions/Network"
+            },
+            "type": "object",
+            "default": "{}"
+          },
+          "type": "object",
+          "default": "{}"
+        },
         "private": {
           "additionalProperties": {
             "$ref": "#/definitions/Network"
@@ -420,7 +431,8 @@
       },
       "preferredOrder": [
         "private",
-        "public"
+        "public",
+        "custom"
       ],
       "additionalProperties": false,
       "description": "holds private and public subnets",
@@ -675,6 +687,9 @@
           "description": "Limit [nodes to specific AZs](/usage/autoscaling/#zone-aware-auto-scaling)",
           "x-intellij-html-description": "Limit <a href=\"/usage/autoscaling/#zone-aware-auto-scaling\">nodes to specific AZs</a>"
         },
+        "customSubnets": {
+          "type": "string"
+        },
         "desiredCapacity": {
           "type": "integer"
         },
@@ -811,6 +826,7 @@
         "desiredCapacity",
         "minSize",
         "maxSize",
+        "customSubnets",
         "volumeSize",
         "ssh",
         "labels",
@@ -933,6 +949,9 @@
           "type": "string",
           "description": "configures [T3 Unlimited](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.html), valid only for T-type instances",
           "x-intellij-html-description": "configures <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.html\">T3 Unlimited</a>, valid only for T-type instances"
+        },
+        "customSubnets": {
+          "type": "string"
         },
         "desiredCapacity": {
           "type": "integer"
@@ -1093,6 +1112,7 @@
         "desiredCapacity",
         "minSize",
         "maxSize",
+        "customSubnets",
         "volumeSize",
         "ssh",
         "labels",
@@ -1115,6 +1135,7 @@
         "disablePodIMDS",
         "placement",
         "instancesDistribution",
+        "customSubnets",
         "asgMetricsCollection",
         "cpuCredits",
         "taints",

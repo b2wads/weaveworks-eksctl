@@ -59,8 +59,9 @@ type (
 	}
 	// ClusterSubnets holds private and public subnets
 	ClusterSubnets struct {
-		Private map[string]Network `json:"private,omitempty"`
-		Public  map[string]Network `json:"public,omitempty"`
+		Private map[string]Network            `json:"private,omitempty"`
+		Public  map[string]Network            `json:"public,omitempty"`
+		Custom  map[string]map[string]Network `json:"custom,omitempty"`
 	}
 	// SubnetTopology can be SubnetTopologyPrivate or SubnetTopologyPublic
 	SubnetTopology string
